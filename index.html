@@ -28,7 +28,7 @@
       z-index: 1;
       text-align: center;
       color: #fff;
-      padding: 40vh 20px 50vh;
+      padding: 30vh 20px 50vh;
     }
 
     .hero-title {
@@ -65,7 +65,7 @@
       padding: 100px 20px;
       text-align: center;
       font-size: 1.5em;
-      line-height: 1.8em;
+      line-height: 1.4em;
     }
   </style>
 </head>
@@ -76,6 +76,49 @@
   <div class="hero-content">
     <div class="hero-title">ZogSoft Games</div>
     <div class="hero-subtitle">Augmenting procedural generation with generative AI</div>
+
+    <br>
+
+    
+
+    <a href="https://store.steampowered.com/app/3614730/Monster_Pod_Quest" target="_blank" class="wishlist-button">
+      <img src="https://cdn.akamai.steamstatic.com/store/about/logo_steam.svg" alt="Steam Logo">
+      Wishlist Monster Pod Quest on Steam!
+    </a>
+
+    <style>
+      .wishlist-button {
+        display: flex;
+        margin: 20px auto;
+        justify-content: centre;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        justify-content: center;
+        width: 180px; /* Shorter width */
+        padding: 16px 12px; /* More vertical padding */
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background: #1b2838; /* Steam dark blue */
+        border: 2px solid #66c0f4; /* Steam light blue */
+        text-decoration: none;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.2s;
+      }
+    
+      .wishlist-button img {
+        height: 28px; /* Adjust size as needed */
+        margin-bottom: 6px; /* Space between logo and text */
+      }
+    
+      .wishlist-button:hover {
+        background: #66c0f4;
+        color: #1b2838;
+      }
+    </style>
+        
+
     <br>
     <a href="#more" class="scroll-down">▼ Scroll Down ▼</a>
   </div>
@@ -86,12 +129,57 @@
 
 
   <div id="more" class="section">
-    <br>
-    Welcome to ZogSoft! More information coming soon...
-    <!-- <br><br>
-    Subscribe here to stay updated. -->
+    <p class="company-info">
+      Welcome to ZogSoft! We are creating AI-based videogames which use custom generative models
+      to produce new, player-specific content during gameplay.
+    </p>
+  
+    <div class="game-promo">
+      <img src="images/store_capsule_main.png" alt="Game Banner">
+      <div class="promo-text">
+        A creature collector RPG with unlimited creatures.
+        <a href="https://store.steampowered.com/app/3614730/Monster_Pod_Quest/" style="color:#ffdd00;">Coming 2025</a>        
+      </div>
+    </div>
   </div>
-
+  
+  <style>
+    .company-info {
+      text-align: center;
+      font-size: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      color: white;
+    }
+  
+    .game-promo {
+      position: relative;
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+      line-height: 1.4em;
+    }
+  
+    .game-promo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  
+    .promo-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 8px;
+    }
+  </style>
+  
   <script>
     (function() {
       const canvas = document.getElementById('heroCanvas');
@@ -154,9 +242,9 @@
         });
       }
 
-      let lastTimestamp = 0;
-
       let startBiome = Math.floor(Math.random() * TILE_GRID_COUNT * TILE_GRID_COUNT);
+
+      let lastTimestamp = 0;
 
       // Main animation loop.
       function animate(timestamp) {
@@ -247,7 +335,7 @@
         if (loadedCount === 2) {
           requestAnimationFrame(animate);
           let count = canvas.width * canvas.height * MONSTER_DENSITY / SPRITE_SIZE / SPRITE_SIZE;
-            for (i=0; i<count; i++) spawnMonster();
+            for (let i=0; i<count; i++) spawnMonster();
         }
       }
       tileSheet.onload = checkLoaded;
